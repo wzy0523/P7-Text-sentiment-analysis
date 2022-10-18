@@ -8,3 +8,7 @@ The encapsulation of functions, cross validation, model training, and the use of
 
 In Bert and Albert: 
 The code is almost entirely written by us.
+
+In LSTM:
+The implementation of model structure comes from the Modification of https://github.com/mihirahlawat/Sentiment-Analysis/blob/master/CNN%2BLSTM_Sentiment_Analysis.ipynb and https://github.com/sanjay-raghu/sentiment-analysis-using-LSTM-keras/blob/master/lstm-sentiment-analysis-data-imbalance-keras.ipynb. The encapsulation of functions, cross validation, model training,parameter selecting and the use of our dataset come from my code writing.
+
