@@ -1,0 +1,172 @@
+alberta=c(0.5714,
+    +     0.2857,
+    +     0.619,
+    +     0.5238,
+    +     0.7)
+albertb=c(0.875,
+    +     0.92,
+    +     0.46,
+    +     0.735,
+    +     0.9397)
+albertc=c(0.61,
+           +    0.654,
+           +    0.635,
+           +    0.555,
+           +    0.598)
+albertd=c(0.48,
+          +     0.56,
+          +     0.575,
+          +     0.475,
+          +     0.5427)
+alberte=c(0.545,
+          +     0.495,
+          +     0.52,
+          +     0.55,
+          +     0.593)
+albertf=c(0.755,
+          +     0.8,
+          +     0.74,
+          +     0.79,
+          +     0.804)
+cnna=c(0.619,
+       +     0.286,
+       +     0.619,
+       +     0.619,
+       +     0.75)
+cnnb=c(0.875,
+       +     0.76,
+       +     0.47,
+       +     0.74,
+       +     0.904)
+cnnc=c(0.72,
+       +     0.615,
+       +     0.72,
+       +     0.69,
+       +     0.673)
+cnnd=c(0.65,
+       +     0.66,
+       +     0.585,
+       +     0.63,
+       +     0.683)
+cnne=c(0.565,
+       +     0.605,
+       +     0.6,
+       +     0.555,
+       +     0.628)
+cnnf=c(0.755,
+       +     0.805,
+       +     0.735,
+       +     0.79,
+       +     0.809)
+berta=c(0.57,
+        +     0.28,
+        +     0.619,
+        +     0.619,
+        +     0.7)
+bertb=c(0.87,
+        +    0.92,
+        +    0.46,
+        +    0.73,
+        +    0.93)
+bertc=c(0.63,
+        +     0.65,
+        +     0.64,
+        +     0.63,
+        +     0.598)
+bertd=c(0.495,
+        +     0.765,
+        +     0.78,
+        +     0.76,
+        +     0.789)
+berte=c(0.635,
+        +     0.58,
+        +     0.53,
+        +     0.61,
+        +     0.683)
+bertf=c(0.755,
+        +     0.8,
+        +     0.74,
+        +     0.79,
+        +     0.8)
+
+a=c(0.524,0.333,0.571,0.667,0.667)
+b=c(0.87,0.905,0.46,0.71,0.64)
+c=c(0.725,0.705,0.655,0.675,0.7)
+d=c(0.65,0.775,0.705,0.735,0.6)
+e=c(0.675,0.7,0.66,0.605,0.605)
+f=c(0.765,0.8,0.795,0.725,0.815)
+
+# upload accuracies
+
+albertlist=list()
+albertlist=append(albertlist,t.test(alberta,berta)$p.value)
+albertlist=append(albertlist,t.test(alberta,cnna)$p.value)
+albertlist=append(albertlist,t.test(alberta,a)$p.value)
+
+albertlist=append(albertlist,t.test(albertb,bertb)$p.value)
+albertlist=append(albertlist,t.test(albertb,cnnb)$p.value)
+albertlist=append(albertlist,t.test(albertb,b)$p.value)
+
+albertlist=append(albertlist,t.test(albertc,bertc)$p.value)
+albertlist=append(albertlist,t.test(albertc,cnnc)$p.value)
+albertlist=append(albertlist,t.test(albertc,c)$p.value)
+
+albertlist=append(albertlist,t.test(albertd,bertd)$p.value)
+albertlist=append(albertlist,t.test(albertd,cnnd)$p.value)
+albertlist=append(albertlist,t.test(albertd,d)$p.value)
+
+albertlist=append(albertlist,t.test(alberte,berte)$p.value)
+albertlist=append(albertlist,t.test(alberte,cnne)$p.value)
+albertlist=append(albertlist,t.test(alberte,e)$p.value)
+
+albertlist=append(albertlist,t.test(albertf,bertf)$p.value)
+albertlist=append(albertlist,t.test(albertf,cnnf)$p.value)
+albertlist=append(albertlist,t.test(albertf,f)$p.value)
+
+(matrix(albertlist,byrow=T,ncol=3,dimnames=list(c("covid","email","imdb","news","review","twitter"),
+                                               c("bert","cnn","lstm"))))
+                                               
+# albert t test against other models
+
+bertlist=list()
+bertlist=append(bertlist,t.test(berta,cnna)$p.value)
+bertlist=append(bertlist,t.test(berta,a)$p.value)
+
+bertlist=append(bertlist,t.test(bertb,cnnb)$p.value)
+bertlist=append(bertlist,t.test(bertb,b)$p.value)
+
+
+bertlist=append(bertlist,t.test(bertc,cnnc)$p.value)
+bertlist=append(bertlist,t.test(bertc,c)$p.value)
+
+bertlist=append(bertlist,t.test(bertd,cnnd)$p.value)
+bertlist=append(bertlist,t.test(bertd,d)$p.value)
+
+bertlist=append(bertlist,t.test(berte,cnne)$p.value)
+bertlist=append(bertlist,t.test(berte,e)$p.value)
+
+bertlist=append(bertlist,t.test(bertf,cnnf)$p.value)
+bertlist=append(bertlist,t.test(bertf,f)$p.value)
+
+(matrix(bertlist,byrow=T,ncol=2,dimnames=list(c("covid","email","imdb","news","review","twitter"),
+                                               c("cnn","lstm"))))
+
+#bert against remaining models
+
+cnnlist=list()
+cnnlist=append(cnnlist,t.test(cnna,a)$p.value)
+
+cnnlist=append(cnnlist,t.test(cnnb,b)$p.value)
+
+cnnlist=append(cnnlist,t.test(cnnc,c)$p.value)
+
+cnnlist=append(cnnlist,t.test(cnnd,d)$p.value)
+
+cnnlist=append(cnnlist,t.test(cnne,e)$p.value)
+
+cnnlist=append(cnnlist,t.test(cnnf,f)$p.value)
+
+names(cnnlist)=c("covid","email","imdb","news","review","twitter")
+cnnlist
+
+#cnn against lstm
